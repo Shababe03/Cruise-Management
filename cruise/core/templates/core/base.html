@@ -1,0 +1,317 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Cruises</title>
+
+    <!-- CSS Links -->
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css//modals/contact.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/modals/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/modals/signup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+
+    <!-- Icon Library (Replace with your preferred icon library) -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Favicon Links -->
+
+    <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
+
+    <!-- font-style -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+
+    {% block content %}
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <a href="#">Luxury Cruises</a>
+        </div>
+        <nav class="nav-links" id="nav-links">
+          <ul>
+            <li><a href="/base/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="#destinations/">Destinations</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a onclick="openModal('contactModal')">Contact</a>
+          </ul>
+        </nav>
+        <div class="auth-buttons">
+          <div class="loginbtn" id="loginbtn" onclick="openModal('loginModal')">
+              <a><b>Login</b></a>
+          </div>
+          <div class="signinbtn" id="signupbtn" onclick="openModal('signupModal')">
+              <a><b>Sign Up</b></a>
+          </div>
+
+          <!-- After logging, this is displayed -->
+
+          <div class="profilebtn" id="profile-btn" style="display: none;">
+            <a href="/profile/"><b>Profile</b></a>
+          </div>
+          <div class="logoutbtn" id="logout-btn" style="display: none;" onclick="logout()">
+            <a><b>Logout</b></a>
+          </div>
+        </div>
+        <div id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero__content">
+          <h1>Experience the Ultimate in Luxury Cruises</h1>
+          <p>
+            Explore breathtaking destinations and enjoy unparalleled onboard
+            experiences.
+          </p>
+          <div class="hero__btns">
+            <a href="#" class="btn-primary">Discover More</a>
+            <a href="#" class="btn-secondary">Book Now</a>
+          </div>
+        </div>
+        <div class="hero__image"></div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+
+    <section id="services" class="services">
+      <div class="service-container">
+        <h2>Our Premium Services</h2>
+        <div class="service__cards"> 
+          <div class="carousel service">
+            <div class="carousel-wrapper service">
+              <!-- Service Cards -->
+              <div class="carousel-slide service__card">
+                <i class="ri-ship-line"></i>
+                <h3>Cruise Packages</h3>
+                <p>Exclusive cruise packages designed to offer the best travel experiences.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="ri-restaurant-line"></i>
+                <h3>Onboard Dining</h3>
+                <p>Indulge in gourmet dining options from world-renowned chefs.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-sharp fa-solid fa-spa"></i>
+                <h3>Spa & Wellness</h3>
+                <p>Relax and rejuvenate at our luxurious spa and wellness center.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-helicopter"></i>
+                <h3>Exclusive Shore Excursions</h3>
+                <p>Experience private VIP shore excursions, including guided tours and adventure activities.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-concierge-bell"></i>
+                <h3>Concierge Services</h3>
+                <p>Enjoy personalized assistance for booking, itinerary customization, and personal requests.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-user-tie"></i>
+                <h3>Private Butler Service</h3>
+                <p>Receive dedicated butler services for premium suite guests, providing extra comfort and convenience.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-ship"></i>
+                <h3>Priority Boarding & Disembarkation</h3>
+                <p>Skip the lines with priority boarding and disembarkation for a seamless experience.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-utensils"></i>
+                <h3>In-Suite Dining with Private Chef</h3>
+                <p>Enjoy a personalized dining experience with a private chef preparing meals in your suite.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h3>Personal Fitness Trainers</h3>
+                <p>Access personal trainers and exclusive gym sessions tailored to your fitness needs.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-paw"></i>
+                <h3>Pet Care & Companion Services</h3>
+                <p>Travel worry-free with pet-friendly accommodations, including pet care and in-room pet sitting.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-glass-martini-alt"></i>
+                <h3>Exclusive Lounge Access</h3>
+                <p>Enjoy access to private lounges with refreshments, entertainment, and dedicated service.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-camera"></i>
+                <h3>Photography & Videography</h3>
+                <p>Capture unforgettable memories with professional photography and videography services.</p>
+              </div>
+              <div class="carousel-slide service__card">
+                <i class="fa-solid fa-spa"></i>
+                <h3>Personalized Luxury Spa</h3>
+                <p>Indulge in custom spa treatments and extended wellness sessions tailored just for you.</p>
+              </div>
+            </div>
+            <!-- Carousel Navigation -->
+            <button class="carousel-button prev service" >&#10094;</button>
+            <button class="carousel-button next service" >&#10095;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Destination Section -->
+
+    <section id="destinations" class="destinations">
+      <div class="destination-container">
+        <h2>Top Destinations</h2>
+        <div class="carousel destination">
+          <div class="carousel-wrapper destination">
+            <!-- Destination Cards -->
+            <div class="carousel-slide destination__card">
+              <img src="../static/assets/destination1.jpeg" alt="Destination1" />
+              <h3>The Caribbean</h3>
+            </div>
+            <div class="carousel-slide destination__card">
+              <img src="../static/assets/destination2.jpeg" alt="Destination2" />
+              <h3>Alaska</h3>
+            </div>
+            <div class="carousel-slide destination__card">
+              <img src="../static/assets/destination3.jpeg" alt="Destination3" />
+              <h3>Mediterranean</h3>
+            </div>
+            <div class="carousel-slide destination__card">
+              <img src="../static/assets/destination4.jpeg" alt="Destination4" />
+              <h3>The Bahamas</h3>
+            </div>
+            <div class="carousel-slide destination__card">
+              <img src="../static/assets/destination5.jpeg" alt="Destination5" />
+              <h3>The Nile</h3>
+            </div>
+            <div class="carousel-slide destination__card">
+              <img src="../static/assets/destination6.jpeg" alt="Destination6" />
+              <h3>Hawaii</h3>
+            </div>
+          </div>
+          <!-- Carousel Navigation -->
+          <button class="carousel-button prev destination" >&#10094;</button>
+          <button class="carousel-button next destination" >&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner">
+      <div class="cta-container">
+        <h2>Join Us for a Journey Like No Other</h2>
+        <a href="#" class="btn-primary">Start Your Adventure</a>
+      </div>
+    </section>
+
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <p>&copy; 2024 Luxury Cruises. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal signup-modal">
+      <div class="signup-modal-content">
+          <span class="close" onclick="closeModal('signupModal')">&times;</span>
+          <h2>Signup</h2>
+          <form id="signupForm" method="post" onsubmit="event.preventDefault();">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password1" placeholder="Password" required>
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+              </div>
+              <button type="submit">Sign Up</button>
+          </form>
+          <p class="toggle-link">Already have an account? <a href="#" onclick="toggleModal('signupModal', 'loginModal')">Log In</a></p>
+          <div id="signupMessage"></div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal login-modal">
+        <div class="login-modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" method="post" onsubmit="event.preventDefault();">
+                {% csrf_token %}
+                <div class="form-group">
+                  <input type="email" name="username" placeholder="Email" required>
+                  <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+            <p class="toggle-link">Don't have an account? <a href="#" onclick="toggleModal('loginModal', 'signupModal')">Sign Up</a></p>
+            <div id="loginMessage"></div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal contact-modal">
+      <div class="contact-modal-content">
+          <span class="close" onclick="closeModal('contactModal')">&times;</span>
+          <h1>Contact Us</h1>
+          <div class="left-half">
+              <h3>Get in Touch</h3>
+              <p><strong>Phone:</strong> (91) 1234567890 </p>
+              <p><strong>Email:</strong> cruisename@gmail.com</p>
+              <p><strong>Address:</strong> Fort Kochi, Ernakulam, Kerala </p>
+              <div id="map">
+                  <iframe src="https://www.google.com/maps/embed?pb=..."></iframe>
+              </div>
+          </div>
+          <div class="right-half">
+              <h3>Share Your Thoughts</h3>
+              <form id="contactForm" method="post" onsubmit="event.preventDefault();">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <input type="text" name="name" placeholder="Your Name" required>
+                      <input type="email" name="email" placeholder="Your Email" required>
+                      <textarea rows="6" cols="50" name="message" placeholder="Your Message" required></textarea>
+                  </div>
+                  <button type="submit">Send Message</button>
+              </form>
+              <div id="contactMessage"></div>
+          </div>
+      </div>
+    </div>
+
+
+    <script src="{% static 'javascript/base.js' %}"></script>
+    <script src="{% static 'javascript/modal.js' %}"></script>
+    <script src="{% static 'javascript/about.js' %}"></script>
+  </body>
+</html>

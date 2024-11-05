@@ -1,0 +1,227 @@
+/* Navbar Solid */
+
+.aboutnavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    background-color: #03045ecc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.navbarcontainer {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+.logo {
+width: 28rem;
+height: 5rem;
+position: relative;
+right: 8rem;
+display: flex;
+align-items: center;
+}
+
+.logo a {
+font-size: 2.4rem; /* Increased logo size */
+font-weight: bold;
+color: #f1faee; /* Light Cream for logo text */
+}
+
+.logo a:hover {
+color: #a8dadc;
+}
+
+.nav-links {
+display: flex; /* Ensure nav-links is flex */
+align-items: center; /* Align items vertically */
+width: 100%; /* Use full width */
+}
+.nav-links ul {
+flex-grow: 1;
+display: flex;
+gap: 2.5rem;
+}
+.nav-links ul li a {
+font-size: 1.3rem; /* Slightly larger font */
+color: #f1faee; /* Light Cream for better contrast */
+padding: 0.5rem 0; /* Added padding */
+transition: color 0.3s ease; /* Smooth color transition */
+}
+.nav-links ul li a:hover {
+color: #a8dadc; /* Light Teal on hover */
+}
+
+#menu-btn {
+display: none;
+cursor: pointer;
+}
+
+/* Auth Buttons in Navbar */
+.auth-buttons {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1.5rem; /* Space between buttons */
+}
+
+#loginbtn,
+#signupbtn,
+#profile-btn,
+#logout-btn {
+display: none; /* Change to display: flex; when logged in */
+}
+
+.auth-buttons .loginbtn,
+.auth-buttons .signinbtn,
+.auth-buttons .profilebtn,
+.auth-buttons .logoutbtn {
+background-color: #01023d;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 10px 20px; /* Adjust padding for better appearance */
+width: 100px; /* Set a fixed width for consistent button size */
+height: 40px; /* Adjust height as needed */
+cursor: pointer;
+transition: background-color 0.3s ease, color 0.3s ease;
+border-radius: 10px;
+}
+
+.loginbtn a,
+.signinbtn a {
+color: rgb(255, 228, 210);
+text-align: center; /* Center text */
+display: block; /* Ensures the anchor takes full button space */
+width: 100%; /* Ensures anchor covers the button */
+}
+
+/* Hover effect for buttons */
+.signinbtn:hover {
+background-color: #0096c7;
+}
+
+.loginbtn:hover {
+background-color: #0096c7;
+}
+
+/* About Us Section */
+.about-us {
+    background-image: url("../assets/aboutimg.jpg");
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Make the background image fixed for a parallax effect */
+    color: #fff; /* Ensure text is visible on dark background */
+    padding: 3rem 1.5rem; /* Adjust padding as needed */
+    position: relative; /* For overlay positioning */
+}
+
+/* Optional Overlay Effect */
+.about-us::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1; /* Position it behind the content */
+}
+
+/* Text Content Styling */
+.about-us .aboutcontainer {
+    position: relative;
+    z-index: 2; /* Bring text content above the overlay */
+    text-align: center; /* Center align text */
+}
+
+.about-us h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center; /* Center the main heading */
+}
+
+.about-us .no-bullets {
+    list-style-type: none; /* Removes the bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+.about-box {
+    background-color: rgba(255, 255, 255, 0.7); /* Translucent white background */
+    backdrop-filter: blur(5px); /* Blurs the background behind the box */
+    border: 1px solid #a8dadc; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 2rem;
+    margin: 1.5rem 0; /* Space between boxes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transform: translateY(20px); /* Initial position for animation */
+    opacity: 0; /* Initial opacity for animation */
+    transition: transform 0.5s, opacity 0.5s; /* Animation transitions */
+}
+
+.about-box.show {
+    transform: translateY(0); /* Move into view */
+    opacity: 1; /* Fade in */
+}
+
+.about-box h2 {
+    color: #000000; /* Color for the heading */
+    font-size: 2rem; /* Font size for subheadings */
+    margin-bottom: 0.5rem; /* Space below subheadings */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Raised effect for heading text */
+}
+
+.about-box p,
+.about-box ul {
+    color: #01023d; /* Text color for paragraphs and lists */
+    font-size: 1.1rem; /* Font size for content */
+    margin-bottom: 0.5rem; /* Space between content */
+    line-height: 1.6; /* Increase line height for better readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Slight shadow for raised effect */
+}
+
+.about-box ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+/* Call to Action Banner */
+.cta-banner {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: #a8dadc;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: #1d3557;
+}
+
+.cta-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-banner p {
+    font-size: 1.25rem; /* Increase font size for better readability */
+    margin-bottom: 2rem; /* Add space between the paragraph and the button */
+}
+
+.cta-banner .btn-primary {
+    padding: 1rem 2rem;
+    background-color: #fff;
+    color: #457b9d;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-banner .btn-primary:hover {
+    background-color: #f1faee; /* Light Cream on hover */
+}

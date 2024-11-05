@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<!-- Navigation Bar -->
+<header class="aboutnavbar">
+    <div class="navbarcontainer">
+      <div class="logo">
+        <a href="/base/">Luxury Cruises</a>
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <ul>
+          <li><a href="/base/">Home</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="#destinations/">Destinations</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a onclick="openModal('contactModal')">Contact</a>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <div class="loginbtn" id="loginbtn" onclick="openModal('loginModal')">
+            <a><b>Login</b></a>
+        </div>
+        <div class="signinbtn" id="signupbtn" onclick="openModal('signupModal')">
+            <a><b>Sign Up</b></a>
+        </div>
+
+        <!-- After logging, this is displayed -->
+
+        <div class="profilebtn" id="profile-btn" style="display: none;">
+          <a href="/profile/"><b>Profile</b></a>
+        </div>
+        <div class="logoutbtn" id="logout-btn" style="display: none;" onclick="logout()">
+          <a><b>Logout</b></a>
+        </div>
+      </div>
+      <div id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+</header>
+
+<!-- About Us Section -->
+<section class="about-us">
+    <div class="aboutcontainer">
+        <h1>About Us</h1>
+        <div class="about-box" id="mission-box">
+            <h2>Our Mission</h2>
+            <p>At Luxury Cruises, our mission is to create unforgettable travel experiences for our guests through exceptional service, luxurious accommodations, and unique itineraries. We strive to make each journey memorable, ensuring that every detail is taken care of, from gourmet dining to personalized excursions.</p>
+        </div>
+        <div class="about-box" id="values-box">
+            <h2>Our Values</h2>
+            <ul class="no-bullets">
+                <li>Excellence in Service</li>
+                <li>Commitment to Quality</li>
+                <li>Respect for the Environment</li>
+                <li>Creating Memorable Experiences</li>
+            </ul>
+        </div>
+        <div class="about-box" id="why-choose-us-box">
+            <h2>Why Choose Us?</h2>
+            <p>Choosing Luxury Cruises means embarking on a journey where every moment is crafted with care. Our experienced crew is dedicated to providing top-notch service, while our diverse itineraries allow you to discover hidden gems across the globe. Experience luxury like never before, as we pamper you with world-class amenities and personalized attention.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta-banner">
+    <div class="cta-container">
+        <h2>Join Us for a Journey Like No Other</h2>
+        <p>Experience the magic of cruising with Luxury Cruises. Book your adventure today and embark on a journey of a lifetime!</p>
+        <a href="/base/" class="btn-primary">Start Your Adventure</a>
+    </div>
+</section>
+
+{% endblock %}

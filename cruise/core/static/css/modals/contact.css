@@ -1,0 +1,176 @@
+/* Contact Modal General Styles */
+.contact-modal  {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-modal .contact-modal-content {
+    display: flex;
+    background-color: #fff;
+    width: 750px;
+    height: 600px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideIn 0.4s ease-out;
+    position: relative;
+}
+
+.contact-modal-content h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%; /* Move it to the center of the container */
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.3em;
+    color: #333;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Adjust padding to avoid overlap with title */
+.contact-modal-content .left-half,
+.contact-modal-content .right-half {
+    flex: 1 1 50%; /* Ensure both sides have equal width */
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+/* Close Button */
+.contact-modal-content .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    color: #FF5722;
+    cursor: pointer;
+}
+
+.contact-modal-content .close:hover {
+    color: #d84315;
+}
+
+/* Modal Content Sections */
+.left-half, .right-half {
+    padding: 20px;
+    flex: 1;
+}
+
+.left-half {
+    background: #fafafa;;
+}
+
+.right-half {
+    background: #ffffff;
+}
+
+/* Left Section Styling */
+
+.left-half h3 {
+    font-size: 1.8rem;
+    color: #FF5722;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.left-half p {
+    color: #757575;
+    margin: 8px 0;
+}
+
+#map iframe {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Right Section Form Styling */
+.right-half h3 {
+    font-size: 1.8em;
+    color: #FF5722;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.form-group input, .form-group textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #FF5722;
+    outline: none;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    background: #FF5722;
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #e64a19;
+}
+
+/* Close Button Styling */
+.contact-modal-content .close {
+    color: #333;
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.contact-modal-content .close:hover {
+    color: #e63946; /* Matches theme color */
+}
+
+/* Contact Message Styling */
+#contactMessage {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #d32f2f;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
