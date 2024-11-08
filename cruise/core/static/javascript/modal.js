@@ -111,21 +111,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Update Navbar based on login status
+// JavaScript - updateNavbar function
 function updateNavbar() {
     fetch('/get-login-status/')
         .then(response => response.json())
         .then(data => {
             const isLoggedIn = data.is_logged_in;
-            document.getElementById("loginbtn").style.display = isLoggedIn ? "none" : "block";
-            document.getElementById("signupbtn").style.display = isLoggedIn ? "none" : "block";
-            document.getElementById("profile-btn").style.display = isLoggedIn ? "block" : "none";
-            document.getElementById("logout-btn").style.display = isLoggedIn ? "block" : "none";
+            const userRole = data.role;
+
+            // Show or hide buttons based on the user role
+            if (isLoggedIn && userRole === 'customer') {
+                document.getElementById("loginbtn").style.display = "none";
+                document.getElementById("signupbtn").style.display = "none";
+                document.getElementById("profile-btn").style.display = "block";
+                document.getElementById("logout-btn").style.display = "block";
+            } else {
+                // Show Login and Signup buttons for non-customers or non-authenticated users
+                document.getElementById("loginbtn").style.display = "block";
+                document.getElementById("signupbtn").style.display = "block";
+                document.getElementById("profile-btn").style.display = "none";
+                document.getElementById("logout-btn").style.display = "none";
+            }
         })
         .catch(error => console.error('Error fetching login status:', error));
 }
 
+// Ensure the navbar updates when the page loads
 document.addEventListener("DOMContentLoaded", updateNavbar);
+
+
 
 // Logout Function
 function logout() {
@@ -139,14 +153,15 @@ function logout() {
     .then(data => {
         if (data.status === 'success') {
             alert(data.message);
-            updateNavbar();
-            window.location.href = '';
+            updateNavbar();  // Update the navbar to reflect the logout
+            window.location.href = '';  // Redirect to the homepage after logout
         } else {
             alert('Logout failed. Please try again.');
         }
     })
     .catch(error => console.error('Error during logout:', error));
 }
+
 
 // Signup Form Submission
 document.addEventListener('DOMContentLoaded', function() {

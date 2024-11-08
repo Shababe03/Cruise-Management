@@ -13,27 +13,35 @@ class UserModuleManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password=None, **extra_fields):
+        # Make sure the role is set to 'admin' for superusers
+        extra_fields.setdefault('role', 'admin')
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
         return self.create_user(email, password, **extra_fields)
-
+    
     def get_by_natural_key(self, email):
         return self.get(email=email)
 
+
 class UserModule(AbstractBaseUser, PermissionsMixin):
+    ROLE_CHOICES = [
+        ('admin', 'Admin'),
+        ('employee', 'Employee'),
+        ('customer', 'Customer'),
+    ]
+
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='customer')
+
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    is_admin = models.BooleanField(default=False)
-    is_employee = models.BooleanField(default=False)
-    is_customer = models.BooleanField(default=False)
-    
+
     objects = UserModuleManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     groups = models.ManyToManyField(
         Group,
@@ -51,6 +59,7 @@ class UserModule(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
     
 class UserRole(models.Model):
     name = models.CharField(max_length=50, unique=True)

@@ -1,0 +1,33 @@
+{% extends 'admin_app/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>User Modules</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Date Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.date_created }}</td>
+                <td>
+                    <a href="{% url 'edit_model' model_name='usermodule' pk=user.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_model' model_name='usermodule' pk=user.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+{% endblock %}

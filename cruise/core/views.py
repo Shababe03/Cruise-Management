@@ -14,7 +14,18 @@ def about(request):
     return render(request, 'core/about.html')
 
 def get_login_status(request):
-    return JsonResponse({'is_logged_in': request.user.is_authenticated})
+    if request.user.is_authenticated:
+        role = request.user.role if hasattr(request.user, 'role') else 'customer'  # Assuming default is 'customer'
+        return JsonResponse({
+            'is_logged_in': True,
+            'role': role
+        })
+    else:
+        return JsonResponse({
+            'is_logged_in': False,
+            'role': None
+        })
+
 
 def signup(request):
     if request.method == 'POST':
@@ -45,6 +56,7 @@ def login_view(request):
     
     # If form is not valid, return errors as JSON
     return JsonResponse({'status': 'error', 'message': form.errors.as_json()}, safe=False)
+
 
 @require_POST
 def logout_view(request):

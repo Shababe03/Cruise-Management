@@ -1,0 +1,33 @@
+{% extends 'admin_app/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Inventory</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in inventory %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <a href="{% url 'edit_model' model_name='inventory' pk=user.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_model' model_name='inventory' pk=user.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+{% endblock %}

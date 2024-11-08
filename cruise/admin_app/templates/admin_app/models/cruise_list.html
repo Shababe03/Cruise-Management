@@ -1,0 +1,35 @@
+{% extends 'admin_app/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Cruises</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cruise Name</th>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cruise in cruises %}
+            <tr>
+                <td>{{ cruise.id }}</td>
+                <td>{{ cruise.name }}</td>
+                <td>{{ cruise.destination }}</td>
+                <td>{{ cruise.start_date }}</td>
+                <td>{{ cruise.end_date }}</td>
+                <td>
+                    <a href="{% url 'edit_model' model_name='cruise' pk=user.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_model' model_name='cruise' pk=user.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+{% endblock %}

@@ -20,7 +20,6 @@ body.scrolled .navbar {
 
 a {
     text-decoration: none;
-    color: #fff;
 }
 
 .navbar-container {
@@ -97,13 +96,15 @@ a {
   gap: 1.5rem; /* Space between buttons */
 }
 
+/* Button Containers */
 #loginbtn,
 #signupbtn,
 #profile-btn,
 #logout-btn {
-  display: none; /* Change to display: flex; when logged in */
+  display: none; /* Default to hidden, display conditionally when logged in */
 }
 
+/* Button Styles */
 .auth-buttons .loginbtn,
 .auth-buttons .signinbtn,
 .auth-buttons .profilebtn,
@@ -112,29 +113,36 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px; /* Adjust padding for better appearance */
-  width: 100px; /* Set a fixed width for consistent button size */
-  height: 40px; /* Adjust height as needed */
+  padding: 10px 20px;
+  width: 100px; /* Consistent width */
+  height: 40px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 10px;
 }
 
-.loginbtn a,
-.signinbtn a {
+/* Link Styles */
+.auth-buttons .loginbtn a,
+.auth-buttons .signinbtn a,
+.auth-buttons .profilebtn a,
+.auth-buttons .logoutbtn a {
   color: rgb(255, 228, 210);
-  text-align: center; /* Center text */
-  display: block; /* Ensures the anchor takes full button space */
-  width: 100%; /* Ensures anchor covers the button */
+  display: flex; /* Use flexbox to center text */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  width: 100%; /* Full button width */
+  height: 100%; /* Full button height */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: bold; /* Make the text bold for better visibility */
 }
 
-/* Hover effect for buttons */
-.signinbtn:hover {
-  background-color: #0096c7;
-}
-
-.loginbtn:hover {
-  background-color: #0096c7;
+/* Hover Effects */
+.auth-buttons .loginbtn:hover,
+.auth-buttons .signinbtn:hover,
+.auth-buttons .profilebtn:hover,
+.auth-buttons .logoutbtn:hover {
+  background-color: #0096c7; /* Change color on hover */
+  color: #ffffff;
 }
 
 

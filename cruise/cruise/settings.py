@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'admin_app'
 ]
 
 MIDDLEWARE = [
@@ -123,4 +124,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'core.UserModule' 
+AUTH_USER_MODEL = 'core.UserModule'
+
+LOGIN_URL = 'admin-login'  # Custom login view
+LOGIN_REDIRECT_URL = 'admin_dashboard'  # Redirect to the dashboard after login
+LOGOUT_REDIRECT_URL = 'login'  # Redirect to login page after logout

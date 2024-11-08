@@ -1,0 +1,125 @@
+{% extends 'admin_app/base.html' %}
+
+{% block title %}Dashboard - Admin{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+            <i class="mdi mdi-home"></i>
+        </span> Admin Dashboard
+    </h3>
+</div>
+
+<div class="row">
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-info text-white">
+            <div class="card-body">
+                <h5 class="card-title">Users</h5>
+                <p class="card-text">{{ user_count }} Total</p>
+                <a href="{% url 'usermodule_list' %}" class="text-white">View all users</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-warning text-white">
+            <div class="card-body">
+                <h5 class="card-title">Cruises</h5>
+                <p class="card-text">{{ cruise_count }} Total</p>
+                <a href="{% url 'cruise_list' %}" class="text-white">View all cruises</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-success text-white">
+            <div class="card-body">
+                <h5 class="card-title">Bookings</h5>
+                <p class="card-text">{{ booking_count }} Total</p>
+                <a href="{% url 'booking_list' %}" class="text-white">View all bookings</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-info text-white">
+            <div class="card-body">
+                <h5 class="card-title">Destination</h5>
+                <p class="card-text">{{ destination_count }} Total</p>
+                <a href="{% url 'destination_list' %}" class="text-white">View all destinations</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-warning text-white">
+            <div class="card-body">
+                <h5 class="card-title">Employees</h5>
+                <p class="card-text">{{ employee_count }} Total</p>
+                <a href="{% url 'employee_list' %}" class="text-white">View all employees</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-success text-white">
+            <div class="card-body">
+                <h5 class="card-title">Customers</h5>
+                <p class="card-text">{{ customer_count }} Total</p>
+                <a href="{% url 'customer_list' %}" class="text-white">View all customers</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-info text-white">
+            <div class="card-body">
+                <h5 class="card-title">Tasks</h5>
+                <p class="card-text">{{ task_count }} Total</p>
+                <a href="{% url 'task_list' %}" class="text-white">View all tasks</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-warning text-white">
+            <div class="card-body">
+                <h5 class="card-title">Promotion</h5>
+                <p class="card-text">{{ promotion_count }} Total</p>
+                <a href="{% url 'promotion_list' %}" class="text-white">View all promotions</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-success text-white">
+            <div class="card-body">
+                <h5 class="card-title">Inventory</h5>
+                <p class="card-text">{{ inventory_count }} Total</p>
+                <a href="{% url 'inventory_list' %}" class="text-white">View all inventories</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-info text-white">
+            <div class="card-body">
+                <h5 class="card-title">Feedback</h5>
+                <p class="card-text">{{ feedback_count }} Total</p>
+                <a href="{% url 'feedback_list' %}" class="text-white">View all feedbacks</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-warning text-white">
+            <div class="card-body">
+                <h5 class="card-title">Activity Log</h5>
+                <p class="card-text">{{ activity_log_count }} Total</p>
+                <a href="{% url 'activitylog_list' %}" class="text-white">View all activity logs</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

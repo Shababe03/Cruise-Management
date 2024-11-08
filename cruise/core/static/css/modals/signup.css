@@ -11,41 +11,73 @@
     background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
 }
 
-/* Modal Content Styling */
+/* Modal Content Styling with Left-Right Split */
 .signup-modal .signup-modal-content {
-    background-color: rgba(255, 255, 255, 0.85); /* Translucent background */
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 500px;
-    height: 500px; /* Fixed height for a square shape */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures spacing for content and button */
-    align-items: center;
-    position: relative;
+    flex-direction: row; /* Left-right split */
+    width: 1000px; /* Wider for split layout */
+    height: auto;
+    margin: 5% auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
     animation: fadeIn 0.3s ease-in-out;
-    backdrop-filter: blur(5px); /* Optional blur for better contrast */
+    background-color: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(15px);
 }
 
-.signup-modal .signup-modal-content form {
-    width: 100%;
+/* Left side styling */
+.signup-modal .signup-modal-left {
+    width: 50%; /* Split in half */
+    display: flex;
+    justify-content: flex-start; /* Aligns image to the left */
+    align-items: center; /* Center vertically */
+    background-size: cover;
+    background-position: center;
+    margin: 10px;
+}
+
+.signup-modal .signup-modal-left img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Smooth edge for the left side */
+}
+
+/* Right side styling */
+.signup-modal .signup-modal-right {
+    margin-top: 50px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Heading Styling */
+.signup-modal-right h1 {
+    top: 20px;
+    font-size: 2.3em;
+    color: #4169E1;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.signup-modal-content .signup-modal-left,
+.signup-modal-content .signup-modal-right {
+    flex: 1 1 50%; /* Ensure both sides have equal width */
+    box-sizing: border-box;
+}
+
+/* Form Styling */
+.signup-modal .signup-modal-right form {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px; /* Spacing between form elements */
 }
 
-.signup-modal .signup-modal-content input {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.signup-modal .signup-modal-content .form-group {
+.signup-modal .signup-modal-right .form-group {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -53,46 +85,66 @@
     margin-bottom: 30px; /* Space between inputs and submit button */
 }
 
-.signup-modal .signup-modal-content button[type="submit"] {
-    width: 90%; /* Button width */
-    margin-bottom: 10px; /* Space from bottom of modal */
+/* Input Field Styling */
+.signup-modal .signup-modal-right input[type="text"],
+.signup-modal .signup-modal-right input[type="email"],
+.signup-modal .signup-modal-right input[type="password"] {
+    width: 100%;
     padding: 10px;
-    background-color: #457b9d; /* Your preferred color */
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.signup-modal .signup-modal-right input:focus {
+    border-color: #457b9d; /* Theme color */
+    outline: none;
+}
+
+/* Button Styling */
+.signup-modal .signup-modal-right button[type="submit"] {
+    width: 100%; /* Button width */
+    margin-bottom: 10px; /* Space from bottom of modal */
+    padding: 12px;
+    background-color: #457b9d; /* Primary button color */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s ease;
 }
 
-.signup-modal .signup-modal-content button[type="submit"]:hover {
+.signup-modal .signup-modal-right button[type="submit"]:hover {
     background-color: #1d3557; /* Darker shade on hover */
 }
 
-.signup-modal .signup-modal h2 {
-    margin-top: 15px;
+.signup-modal .signup-modal-right button:active {
+    transform: scale(0.98);
 }
 
-/* Toggle */
-
-.signup-modal-content .toggle-link {
+/* Toggle Link Styling */
+.signup-modal .signup-modal-right .toggle-link {
     font-size: 14px;
     color: #457b9d;
     margin-top: 10px;
     text-align: center;
 }
 
-.signup-modal-content .toggle-link a {
+.signup-modal .signup-modal-right .toggle-link a {
     color: #1d3557;
     text-decoration: none;
     font-weight: bold;
 }
 
-.signup-modal-content .toggle-link a:hover {
+.signup-modal .signup-modal-right .toggle-link a:hover {
     text-decoration: underline;
 }
-
 
 /* Close Button Styling */
 .signup-modal-content .close {
@@ -110,59 +162,25 @@
     color: #e63946; /* Matches theme color */
 }
 
-/* Heading Styling */
-.signup-modal .signup-modal h2 {
-    color: #457b9d; /* Theme color */
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Input Field Styling */
-.signup-modal .signup-modal-content input[type="text"],
-.signup-modal .signup-modal-content input[type="email"],
-.signup-modal .signup-modal-content input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-.signup-modal .signup-modal-content input:focus {
-    border-color: #457b9d; /* Theme color */
-    outline: none;
-}
-
-/* Button Styling */
-.signup-modal .signup-modal-content button {
-    background-color: #1d3557; /* Primary button color */
-    color: #fff;
-    font-size: 16px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s, transform 0.1s ease;
-}
-
-.signup-modal .signup-modal-content button:hover {
-    background-color: #457b9d; /* Lighter shade on hover */
-}
-
-.signup-modal .signup-modal-content button:active {
-    transform: scale(0.98);
-}
-
 /* Message Styling */
 #signupMessage {
     color: #e63946;
     font-size: 14px;
     text-align: center;
     margin-top: 10px;
+}
+
+/* Optional - adjust responsiveness */
+@media (max-width: 768px) {
+    .signup-modal .signup-modal-content {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        width: 90%;
+        height: auto;
+    }
+
+    .signup-modal .signup-modal-left, 
+    .signup-modal .signup-modal-right {
+        width: 100%;
+        height: auto;
+    }
 }

@@ -1,0 +1,35 @@
+{% extends 'admin_app/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Tasks</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Task Name</th>
+                <th>Assigned To</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.assigned_to }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                    <a href="{% url 'edit_model' model_name='task' pk=user.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_model' model_name='task' pk=user.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+{% endblock %}

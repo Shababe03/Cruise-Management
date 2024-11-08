@@ -243,39 +243,49 @@
 
     <!-- Signup Modal -->
     <div id="signupModal" class="modal signup-modal">
-      <div class="signup-modal-content">
-          <span class="close" onclick="closeModal('signupModal')">&times;</span>
-          <h2>Signup</h2>
-          <form id="signupForm" method="post" onsubmit="event.preventDefault();">
-              {% csrf_token %}
-              <div class="form-group">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password1" placeholder="Password" required>
-                <input type="password" name="password2" placeholder="Confirm Password" required>
-              </div>
-              <button type="submit">Sign Up</button>
-          </form>
-          <p class="toggle-link">Already have an account? <a href="#" onclick="toggleModal('signupModal', 'loginModal')">Log In</a></p>
-          <div id="signupMessage"></div>
-      </div>
+        <div class="signup-modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <div class="signup-modal-left">
+              <img src="{% static 'assets/loginimg.jpg' %}">
+            </div>
+            <div class="signup-modal-right">
+              <h1>Signup</h1>
+              <form id="signupForm" method="post" onsubmit="event.preventDefault();">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password1" placeholder="Password" required>
+                    <input type="password" name="password2" placeholder="Confirm Password" required>
+                  </div>
+                  <button type="submit">Sign Up</button>
+              </form>
+            <p class="toggle-link">Already have an account? <a href="#" onclick="toggleModal('signupModal', 'loginModal')">Log In</a></p>
+            <div id="signupMessage"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Login Modal -->
     <div id="loginModal" class="modal login-modal">
         <div class="login-modal-content">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm" method="post" onsubmit="event.preventDefault();">
-                {% csrf_token %}
-                <div class="form-group">
-                  <input type="email" name="username" placeholder="Email" required>
-                  <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <button type="submit">Log In</button>
-            </form>
-            <p class="toggle-link">Don't have an account? <a href="#" onclick="toggleModal('loginModal', 'signupModal')">Sign Up</a></p>
-            <div id="loginMessage"></div>
+            <div class="login-modal-left">
+              <img src="{% static 'assets/loginimg.jpg' %}">
+            </div>
+            <div class="login-modal-right">
+              <h1>Login</h1>
+              <form id="loginForm" method="post" onsubmit="event.preventDefault();">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input type="email" name="username" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                  </div>
+                  <button type="submit">Log In</button>
+              </form>
+              <p class="toggle-link">Don't have an account? <a href="#" onclick="toggleModal('loginModal', 'signupModal')">Sign Up</a></p>
+              <div id="loginMessage"></div>
+            </div>
         </div>
     </div>
 

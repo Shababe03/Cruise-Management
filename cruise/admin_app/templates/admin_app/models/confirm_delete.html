@@ -1,0 +1,21 @@
+{% extends 'admin_app/base.html' %}
+
+{% block title %}Delete {{ model_verbose_name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow-sm border-0 bg-light">
+        <h3 class="text-danger">Confirm Deletion</h3>
+        <p class="lead">Are you sure you want to delete <strong>{{ model_verbose_name }}: "{{ object }}"</strong>?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-danger me-2">Yes, Delete</button>
+                <a href="{{ list_url }}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
